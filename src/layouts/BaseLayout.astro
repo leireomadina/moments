@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Leire Ordeñana Madina | Moments</title>
+		<meta charset="utf-8" />
+		<meta
+			name="description"
+			content="Moments is a photo repository made by Leire Ordeñana Madina, a web developer based in Getxo."
+		/>
+		<meta name="author" content="Leire Ordeñana Madina" />
+		<meta
+			name="keywords"
+			content="photo, photography, moments, web developer, developer"
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html {
+		scroll-behavior: auto;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
+	body {
+		font-size: 1.5rem;
+	}
+</style>
