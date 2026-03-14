@@ -1,9 +1,10 @@
 ---
 import Layout from '@layouts/BaseLayout.astro'
+import { ROUTES } from '@utils/routes'
 ---
 
 <Layout>
 	<h1>Moments</h1>
 	<p>This is a selection of photographs</p>
-	<a href="/albums">Visit my albums</a>
+	<a href={ROUTES.albums}>Visit my albums</a>
 </Layout>
