@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content'
 import Layout from '@layouts/BaseLayout.astro'
 const allAlbums = await getCollection('albums')
+import { ROUTES } from '@utils/routes'
 ---
 
 <Layout>
@@ -10,7 +11,7 @@ const allAlbums = await getCollection('albums')
 		{
 			allAlbums.map(({ id, data: { title, date } }) => (
 				<li>
-					<a href={`/albums/${id}`}>
+					<a href={ROUTES.albums.detail(id)}>
 						{title} - {date}
 					</a>
 				</li>

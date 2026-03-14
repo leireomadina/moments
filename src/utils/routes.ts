@@ -1,4 +1,7 @@
 export const ROUTES = {
 	home: '/',
-	albums: '/albums',
+	albums: {
+		index: '/albums',
+		detail: (id: string) => `/albums/${id}`,
+	},
 } as const
