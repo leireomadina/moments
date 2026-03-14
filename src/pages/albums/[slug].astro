@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+
+export async function getStaticPaths() {
+	const allAlbums = await getCollection('albums')
+	return allAlbums.map((album) => ({
+		params: { slug: album.id },
+		props: { album },
+	}))
+}
+
+const { slug } = Astro.params
+const albumPhotos = await getCollection('photos', ({ data }) => {
+	return data.collection === slug
+})
+---
+
+<h2>{slug} photos</h2>
+<ul>
+	{
+		albumPhotos.map((photo) => (
+			<li>
+				<h3>{photo.data.title}</h3>
+				<p>{photo.data.description}</p>
+				<Image
+					src={photo.data.image}
+					alt={photo.data.title}
+					width={600}
+					class="w-full h-auto"
+				/>
+			</li>
+		))
+	}
+</ul>
