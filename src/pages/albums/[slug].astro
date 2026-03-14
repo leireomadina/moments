@@ -19,16 +19,11 @@ const albumPhotos = await getCollection('photos', ({ data }) => {
 <h2>{slug} photos</h2>
 <ul>
 	{
-		albumPhotos.map((photo) => (
+		albumPhotos.map(({ data: { title, description, image } }) => (
 			<li>
-				<h3>{photo.data.title}</h3>
-				<p>{photo.data.description}</p>
-				<Image
-					src={photo.data.image}
-					alt={photo.data.title}
-					width={600}
-					class="w-full h-auto"
-				/>
+				<h3>{title}</h3>
+				<p>{description}</p>
+				<Image src={image} alt={title} width={1200} class="w-full h-auto" />
 			</li>
 		))
 	}

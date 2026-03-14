@@ -8,9 +8,11 @@ const allAlbums = await getCollection('albums')
 	<h1>My albums</h1>
 	<ul>
 		{
-			allAlbums.map((album) => (
+			allAlbums.map(({ id, data: { title, date } }) => (
 				<li>
-					<a href={`/albums/${album.id}`}>{album.data.title} - {album.data.date}</a>
+					<a href={`/albums/${id}`}>
+						{title} - {date}
+					</a>
 				</li>
 			))
 		}
