@@ -8,8 +8,19 @@ import CameraIcon from '@assets/icons/camera.astro'
 		<CameraIcon />
 	</a>
 
-	<nav class="flex gap-6">
-		<a href={ROUTES.albums.index} class="hover:underline">Albums</a>
-		<a href={ROUTES.portfolio} class="hover:underline" target="_blank" rel="noopener noreferrer">About</a>
+	<nav>
+		<ul class="flex gap-6">
+			<li>
+				<a href={ROUTES.albums.index} class="hover:underline">Albums</a>
+			</li>
+			<li>
+				<a
+					href={ROUTES.portfolio}
+					class="hover:underline"
+					target="_blank"
+					rel="noopener noreferrer">About</a
+				>
+			</li>
+		</ul>
 	</nav>
 </header>
