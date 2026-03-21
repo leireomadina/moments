@@ -1,16 +1,27 @@
 ---
 import '../styles/global.css'
+import Header from '@components/Header.astro'
+import Footer from '@components/Footer.astro'
+
+interface Props {
+	title?: string
+	description?: string
+}
+
+const {
+	title = 'Moments',
+	description = 'Moments is a photo repository made by Leire Ordeñana Madina, a web developer based in Getxo.',
+} = Astro.props
+
+const formattedTitle = title === 'Moments' ? title : `${title} | Moments`
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>Leire Ordeñana Madina | Moments</title>
+		<title>{formattedTitle}</title>
 		<meta charset="utf-8" />
-		<meta
-			name="description"
-			content="Moments is a photo repository made by Leire Ordeñana Madina, a web developer based in Getxo."
-		/>
+		<meta name="description" content={description} />
 		<meta name="author" content="Leire Ordeñana Madina" />
 		<meta
 			name="keywords"
@@ -21,22 +32,11 @@ import '../styles/global.css'
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 	</head>
-	<body>
-		<slot />
+	<body class="flex flex-col min-h-screen">
+		<Header />
+		<main class="flex-grow max-w-7xl mx-auto w-full px-8 py-12">
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html {
-		scroll-behavior: auto;
-	}
-
-	@media (prefers-reduced-motion: no-preference) {
-		html {
-			scroll-behavior: smooth;
-		}
-	}
-	body {
-		font-size: 1.5rem;
-	}
-</style>
