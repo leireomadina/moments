@@ -11,7 +11,7 @@ interface Props {
 const {
 	title = 'Moments',
 	description = 'Moments is a photo repository made by Leire Ordeñana Madina, a web developer based in Getxo.',
-} = Astro.props
+} = Astro.props as Props
 
 const formattedTitle = title === 'Moments' ? title : `${title} | Moments`
 ---
