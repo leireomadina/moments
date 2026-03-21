@@ -1,5 +1,5 @@
 ---
-title: Prague 2025
+title: Prague
 description: This is a description
 date: September 2025
 type: trip

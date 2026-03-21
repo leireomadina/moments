@@ -1,6 +1,6 @@
 ---
-title: Romania 2024
+title: Transilvania
 description: This is a description
-date: September - October 2024
+date: September 2024
 type: trip
 ---
