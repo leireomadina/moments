@@ -1,0 +1,26 @@
+---
+import { ROUTES } from '@utils/routes'
+import CameraIcon from '@assets/icons/camera.astro'
+---
+
+<header class="w-full p-8 flex justify-between items-center">
+	<a href={ROUTES.home} aria-label="Homepage">
+		<CameraIcon />
+	</a>
+
+	<nav>
+		<ul class="flex gap-6">
+			<li>
+				<a href={ROUTES.albums.index} class="hover:underline">Albums</a>
+			</li>
+			<li>
+				<a
+					href={ROUTES.portfolio}
+					class="hover:underline"
+					target="_blank"
+					rel="noopener noreferrer">About</a
+				>
+			</li>
+		</ul>
+	</nav>
+</header>
