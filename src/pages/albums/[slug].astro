@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import { Image } from 'astro:assets'
+import Layout from '@layouts/BaseLayout.astro'
 
 export async function getStaticPaths() {
 	const allAlbums = await getCollection('albums')
@@ -10,21 +11,33 @@ export async function getStaticPaths() {
 	}))
 }
 
+const { album } = Astro.props
+const { title, description } = album.data
 const { slug } = Astro.params
+
 const albumPhotos = await getCollection('photos', ({ data }) => {
 	return data.collection === slug
 })
 ---
 
-<h2>{slug} photos</h2>
-<ul>
-	{
-		albumPhotos.map(({ data: { title, description, image } }) => (
-			<li>
-				<h3>{title}</h3>
-				<p>{description}</p>
-				<Image src={image} alt={title} width={1200} class="w-full h-auto" />
-			</li>
-		))
-	}
-</ul>
+<Layout title={title} description={description}>
+	<h2 class="mb-8">{title} photos</h2>
+	<ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
+		{
+			albumPhotos.map(({ data: { title, description, image } }) => (
+				<li class="space-y-4">
+					<Image
+						src={image}
+						alt={title}
+						width={1200}
+						class="w-full h-auto rounded-lg shadow-sm"
+					/>
+					<div>
+						<h3 class="text-xl font-bold">{title}</h3>
+						{description && <p class="text-gray-600">{description}</p>}
+					</div>
+				</li>
+			))
+		}
+	</ul>
+</Layout>

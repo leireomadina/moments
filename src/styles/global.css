@@ -3,6 +3,16 @@
 @import "./base/typography.css";
 
 @layer base {
+    html {
+        scroll-behavior: auto;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
+
     body {
         font-family: var(--font-sans), sans-serif;
         font-weight: var(--font-weight-light);
