@@ -4,7 +4,16 @@ import { ROUTES } from '@utils/routes'
 ---
 
 <Layout>
-	<h1>Moments</h1>
-	<p>This is a selection of photographs</p>
-	<a href={ROUTES.albums.index}>Visit my albums</a>
+	<div class="space-y-6">
+		<h1 class="text-4xl md:text-6xl">Moments</h1>
+		<p class="text-xl max-w-2xl">
+			A personal collection of photographs and memories from trips.
+		</p>
+		<a
+			href={ROUTES.albums.index}
+			class="inline-block px-6 py-3 bg-black text-white rounded hover:bg-gray-800 transition-colors"
+		>
+			Explore albums
+		</a>
+	</div>
 </Layout>
