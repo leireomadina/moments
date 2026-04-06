@@ -1,8 +1,10 @@
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export const ROUTES = {
-	home: '/',
+	home: `${baseUrl}/`,
 	albums: {
-		index: '/albums',
-		detail: (id: string) => `/albums/${id}`,
+		index: `${baseUrl}/albums`,
+		detail: (id: string) => `${baseUrl}/albums/${id}`,
 	},
 	portfolio: 'https://leireomadina.vercel.app/',
 } as const
